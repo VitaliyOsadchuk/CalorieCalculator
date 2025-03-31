@@ -9,7 +9,7 @@ const jwt = require('jsonwebtoken');
 const app = express();
 app.use(express.json());
 app.use(cors()); // для дозволу запитів з фронтенду
-
+const port = process.env.PORT || 8080;
 // Підключення до MongoDB
 mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
@@ -229,8 +229,8 @@ app.delete("/api/calories", authenticateToken, async (req, res) => {
 
   
 // Запуск сервера
-const PORT = process.env.PORT || 8080;
-const server = app.listen(PORT, () => console.log(`Сервер працює на порту ${PORT}`));
+
+const server = app.listen(PORT, () => console.log(`Сервер працює на порту ${port}`));
 
 // Експортуємо app для тестів
 module.exports = app;
