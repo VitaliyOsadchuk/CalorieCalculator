@@ -229,7 +229,7 @@ app.delete("/api/calories", authenticateToken, async (req, res) => {
 
   
 // Запуск сервера
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8080;
 const server = app.listen(PORT, () => console.log(`Сервер працює на порту ${PORT}`));
 
 // Експортуємо app для тестів
